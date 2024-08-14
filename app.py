@@ -22,7 +22,7 @@ def query_flask_app(prompt):
         print(f"Error: {response.status_code}")
         return None, []
 
-st.title("TinyML Foundation Naive RAG Agent")
+st.title("TinyML Foundation RAG Agent")
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
