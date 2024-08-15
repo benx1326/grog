@@ -112,12 +112,10 @@ if 'search_engine' not in st.session_state:
     print(f"Text unit records: {len(text_unit_df)}")
     text_unit_df.head()
 
-    api_key = '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'
     llm_model = 'gpt-4o-mini'
     embedding_model = 'text-embedding-3-small'
 
     llm = ChatOpenAI(
-        api_key=api_key,
         model=llm_model,
         api_type=OpenaiApiType.OpenAI,  # OpenaiApiType.OpenAI or OpenaiApiType.AzureOpenAI
         max_retries=20,
@@ -126,7 +124,6 @@ if 'search_engine' not in st.session_state:
     token_encoder = tiktoken.get_encoding("cl100k_base")
 
     text_embedder = OpenAIEmbedding(
-        api_key=api_key,
         api_base=None,
         api_type=OpenaiApiType.OpenAI,
         model=embedding_model,
