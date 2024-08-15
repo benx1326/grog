@@ -79,12 +79,10 @@ text_units = read_indexer_text_units(text_unit_df)
 print(f"Text unit records: {len(text_unit_df)}")
 text_unit_df.head()
 
-api_key = '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'
 llm_model = 'gpt-4o-mini'
 embedding_model = 'text-embedding-3-small'
 
 llm = ChatOpenAI(
-    api_key=api_key,
     model=llm_model,
     api_type=OpenaiApiType.OpenAI,  # OpenaiApiType.OpenAI or OpenaiApiType.AzureOpenAI
     max_retries=20,
