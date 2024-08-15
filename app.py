@@ -3,6 +3,8 @@ import streamlit as st
 import requests
 import json
 import time
+import os
+
 
 def stream_output(s):
     for line in s.split('\n'):
@@ -26,7 +28,9 @@ st.title("TinyML Foundation RAG Agent")
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
-
+if 'init' not in st.session_state:
+    os.system('python server.py &') 
+    st.session_state.init = True
 
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
